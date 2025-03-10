@@ -1,5 +1,5 @@
-x=open('wcvp/wcvp_names.csv').readlines()
-z=open('wcvp/wcvp_distribution.csv').readlines()
+x=open('wcvp_names.csv').readlines()
+z=open('wcvp_distribution.csv').readlines()
 
 ##################################################
 ##Species level records
@@ -30,12 +30,12 @@ for l in z[1:]:
 		except KeyError:id2introduced[y[1]]=[y[6]]
 
 
-sp=open('host_sp.list').readlines()
+sp=open('sp_list.txt').readlines()
 failed_sp=[]
-out=open('wcvp_info.host.tsv','a')
+out=open('wcvp_info.tsv','w')
 out.write('Query\tFamily\tGenus\tSpecies\tAuthor\tRegion\tlifeform\tClimate\tNative_range\tIntroduced_range\n')
 for l in sp:
-	query=l.split('\t')[1].strip()
+	query=l.strip()
 	try:
 		valid_id=sp2accepted_id[query]
 		valid_taxon_rec=id2taxonrec[valid_id]
